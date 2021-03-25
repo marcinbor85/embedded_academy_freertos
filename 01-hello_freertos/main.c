@@ -6,7 +6,7 @@
 static void task_service(void *pvParameters)
 {
         while(1) {
-                vTaskDelay(500 / portTICK_RATE_MS);
+                vTaskDelay(500UL / portTICK_RATE_MS);
 
                 BaseType_t current_tick = xTaskGetTickCount();
                 FreeRTOS_printf("hello freertos: tick = %lu\n", current_tick);

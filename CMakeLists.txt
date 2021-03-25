@@ -28,3 +28,4 @@ set(
 
 add_subdirectory(common)
 add_subdirectory(01-hello_freertos)
+add_subdirectory(02-delay_until)
