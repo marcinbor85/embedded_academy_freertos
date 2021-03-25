@@ -1,0 +1,11 @@
+{
+    "C_Cpp.default.includePath": [
+        "FreeRTOS-Kernel/include",
+        "FreeRTOS-Kernel/portable/ThirdParty/GCC/Posix",
+        "FreeRTOS-Kernel/portable/ThirdParty/GCC/Posix/utils",
+        "01-hello_freertos",
+    ],
+    "files.associations": {
+        "freertos.h": "c"
+    }
+}
