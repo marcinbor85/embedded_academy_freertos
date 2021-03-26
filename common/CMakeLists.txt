@@ -1,10 +1,12 @@
-set(TARGET common)
-
-add_library(
-    ${TARGET}
-    STATIC
-    assert.c
-    print.c
+set(
+    COMMON_SRC
+    ${CMAKE_CURRENT_SOURCE_DIR}/assert.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/print.c
+)
+set(
+    COMMON_INC
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-target_include_directories(${TARGET} PUBLIC ${FREERTOS_INC})
+set(COMMON_SRC ${COMMON_SRC} PARENT_SCOPE)
+set(COMMON_INC ${COMMON_INC} PARENT_SCOPE)

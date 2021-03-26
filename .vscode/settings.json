@@ -3,9 +3,24 @@
         "FreeRTOS-Kernel/include",
         "FreeRTOS-Kernel/portable/ThirdParty/GCC/Posix",
         "FreeRTOS-Kernel/portable/ThirdParty/GCC/Posix/utils",
+        "common",
+        "osal",
+        "osal/freertos",
         "01-hello_freertos",
+        "02-delay_until",
+        "03-timers_task",
+        "04-system_malloc",
+        "05-polling_events",
+        "06-shared_data",
+        "07-osal",
+        "08-queue_pointers",
     ],
     "files.associations": {
-        "freertos.h": "c"
+        "freertos.h": "c",
+        "semphr.h": "c",
+        "osal.h": "c",
+        "osal_freertos_types.h": "c",
+        "osal_types.h": "c",
+        "event_groups.h": "c"
     }
 }

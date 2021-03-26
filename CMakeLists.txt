@@ -4,9 +4,12 @@ cmake_minimum_required(VERSION 3.0)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11 -O0 -g")
+
 set(FREERTOS_DIR ${CMAKE_SOURCE_DIR}/FreeRTOS-Kernel)
 
-set(FREERTOS_INC
+set(
+    FREERTOS_INC
     ${FREERTOS_DIR}/include
     ${FREERTOS_DIR}/portable/ThirdParty/GCC/Posix
     ${FREERTOS_DIR}/portable/ThirdParty/GCC/Posix/utils
@@ -27,6 +30,43 @@ set(
 )
 
 add_subdirectory(common)
+add_subdirectory(osal)
+
+function(add_example)
+
+    set(TARGET ${ARGV0})
+
+    add_executable(
+        ${TARGET}
+    )
+
+    target_sources(
+        ${TARGET}
+        PRIVATE
+        ${FREERTOS_SRC}
+        ${COMMON_SRC}
+        ${OSAL_SRC}
+        main.c
+    )
+
+    target_include_directories(
+        ${TARGET}
+        PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${COMMON_INC}
+        ${FREERTOS_INC}
+        ${OSAL_INC}
+    )
+
+    target_link_libraries(${TARGET} PUBLIC pthread)
+
+endfunction()
+
 add_subdirectory(01-hello_freertos)
 add_subdirectory(02-delay_until)
 add_subdirectory(03-timers_task)
+add_subdirectory(04-system_malloc)
+add_subdirectory(05-polling_events)
+add_subdirectory(06-shared_data)
+add_subdirectory(07-osal_basics)
+add_subdirectory(08-queue_pointers)
