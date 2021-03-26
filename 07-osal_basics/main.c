@@ -5,7 +5,7 @@
 static void task_service(void *params)
 {
         while(1) {
-                os_task_delay_ms(500UL);
+                os_delay_ms(500UL);
 
                 uint32_t current_tick = os_get_current_tick();
                 OS_PRINTF("hello: tick = %lu\n", current_tick);
