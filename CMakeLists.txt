@@ -6,29 +6,11 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11 -O0 -g")
 
-set(FREERTOS_DIR ${CMAKE_SOURCE_DIR}/FreeRTOS-Kernel)
+set(OSAL_PORT freertos)
+set(FREERTOS_MEMMANG heap_3)
+set(FREERTOS_PORT ThirdParty/GCC/Posix)
 
-set(
-    FREERTOS_INC
-    ${FREERTOS_DIR}/include
-    ${FREERTOS_DIR}/portable/ThirdParty/GCC/Posix
-    ${FREERTOS_DIR}/portable/ThirdParty/GCC/Posix/utils
-)
-
-set(
-    FREERTOS_SRC
-    ${FREERTOS_DIR}/tasks.c
-    ${FREERTOS_DIR}/timers.c
-    ${FREERTOS_DIR}/stream_buffer.c
-    ${FREERTOS_DIR}/queue.c
-    ${FREERTOS_DIR}/list.c
-    ${FREERTOS_DIR}/event_groups.c
-    ${FREERTOS_DIR}/croutine.c
-    ${FREERTOS_DIR}/portable/MemMang/heap_3.c
-    ${FREERTOS_DIR}/portable/ThirdParty/GCC/Posix/port.c    
-    ${FREERTOS_DIR}/portable/ThirdParty/GCC/Posix/utils/wait_for_event.c    
-)
-
+add_subdirectory(FreeRTOS-Kernel)
 add_subdirectory(common)
 add_subdirectory(osal)
 
