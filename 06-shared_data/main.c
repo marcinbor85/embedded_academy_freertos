@@ -22,7 +22,7 @@ static void check_point_thread_unsafe(struct point *point, const char *name)
         /* how can we make it thread-safe? */
 
         if (point->x != point->y) {
-                /* in case of failure lets start self-destruction procedure */
+                /* in case of failure lets start self-destruction procedure :) */
 
                 FreeRTOS_printf("%s: mismatch: %lu != %lu\n",
                         name,
@@ -39,11 +39,13 @@ static void check_point(struct point *point, const char *name)
                 .y = point->y,
         };
 
+        // struct point p = *point;
+
         /* can we use memcpy? */
         // memcpy((uint8_t*)&p, (uint8_t*)point, sizeof(p));
 
         if (p.x != p.y) {
-                /* in case of failure lets start self-destruction procedure */
+                /* in case of failure lets start self-destruction procedure :) */
 
                 FreeRTOS_printf("%s: mismatch: %lu != %lu\n",
                         name,
