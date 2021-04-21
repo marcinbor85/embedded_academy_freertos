@@ -7,18 +7,30 @@
 static void task_bad_service(void *pvParameters)
 {
         while(1) {
-                uint8_t *data = malloc(1000);
+                /* is it ok to use malloc here? */
+                uint8_t *data = malloc(100);
 
+                /* do some fancy operations here */
+                
                 free(data);
+
+                /* maybe delay will solve problem? */
+                // vTaskDelay(1);
         }
 }
 
 static void task_good_service(void *pvParameters)
 {
         while(1) {
-                uint8_t *data = pvPortMalloc(1000);
+                /* is it ok to use pvPortMalloc here? */
+                uint8_t *data = pvPortMalloc(100);
+
+                /* do some fancy operations here */
 
                 vPortFree(data);
+
+                /* maybe delay will solve problem? */
+                // vTaskDelay(1);
         }
 }
 
