@@ -27,7 +27,8 @@ static void task_bad_service(void *pvParameters)
         while(1) {
                 /* maybe some delay? */
                 while (g_poll_flag == false) {
-                        //vTaskDelay(1);
+                        // vTaskDelay(1);
+                        continue;
                 }
                 
                 g_poll_flag = false;
