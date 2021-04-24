@@ -256,5 +256,26 @@
             "preLaunchTask": "make",
             "miDebuggerPath": "/usr/bin/gdb"
         },
+        {
+            "name": "13-queue_set",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/bin/13-queue_set",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Włącz formatowanie kodu dla gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "make",
+            "miDebuggerPath": "/usr/bin/gdb"
+        },
     ]
 }
