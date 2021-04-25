@@ -40,7 +40,7 @@ function(add_example)
         ${OSAL_INC}
     )
 
-    target_link_libraries(${TARGET} PUBLIC pthread)
+    target_link_libraries(${TARGET} PUBLIC pthread rt)
 
 endfunction()
 
@@ -58,3 +58,4 @@ add_subdirectory(11-deadlock_mutex)
 add_subdirectory(12-trace_task)
 add_subdirectory(13-queue_set)
 add_subdirectory(14-priority_inversion)
+add_subdirectory(15-isr_yield)
