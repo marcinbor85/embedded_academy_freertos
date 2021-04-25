@@ -18,7 +18,7 @@ void timeout_callback(void)
 
         xSemaphoreGiveFromISR(g_semphr, &should_yield);
 
-        /* we cannot use portYIELD_FROM_ISR here becouse it is not end of ISR */
+        /* we cannot use portYIELD_FROM_ISR here because it is not end of ISR */
         portYIELD_FROM_ISR(should_yield);
 }
 
