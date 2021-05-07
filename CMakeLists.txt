@@ -20,11 +20,6 @@ function(add_example)
 
     add_executable(
         ${TARGET}
-    )
-
-    target_sources(
-        ${TARGET}
-        PRIVATE
         ${FREERTOS_SRC}
         ${COMMON_SRC}
         ${OSAL_SRC}
